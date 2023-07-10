@@ -1,0 +1,219 @@
+{% extends 'nanocheck/navbar.html' %}
+{% block content %} 
+<style>
+#info {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+<br>
+<form action="{% url 'predict' %}" method="POST">
+    {% csrf_token %}
+
+<div class="row">
+    <div class="col-sm-1"></div>
+
+  <!-- FOR USER"S NANOPARTICLE --> 
+    <div class="col-sm-5 mb-3 mb-sm-0">
+      
+      <div class="card">
+
+        <div class="card-header text-center fw-bolder">
+          Nanoparticle of Interest
+        </div>
+
+        <div class="card-body">
+          <p class="card-text fst-italic">Fill out the needed information of your nanoparticle to test for toxicity.</p>
+
+          <div class="row">
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DDV(m<sub>e</sub>)</italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="Characterizes the change in molar volume between the NPs used in
+            the new output and reference states, considering the measures of toxic effects."></i>
+            <input type="text" class="form-control" id="val1" name="val1">
+          </div></div>
+
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DDL(m<sub>e</sub>)</italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="Accounts for the variation in size between the NPs used in the new
+            and reference states, considering the measures of toxic effects."></i>
+            <input type="text" class="form-control" id="val2" name="val2" >
+          </div>
+          </div></div>
+
+          <div class="row">
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 1</sub>(ATO)b<sub>t</sub></italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="A perturbation term that accounts for the difference in the spectral
+            moment of order 1, which is weighted by the atomic weight between the NPs
+            used in the new and reference states. This variable is influenced by the biological
+            systems involved in the analysis."></i>
+            <input type="text" class="form-control" id="val3" name="val3" >
+          </div></div>
+
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 3</sub>(POL)n<sub>s</sub></italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="Characterizes the change in spectral moment of order 3
+            (weighted by polarizability) between the NPs used in the new and reference states,
+            with consideration of the shapes of the NPs."></i>
+            <input type="text" class="form-control" id="val4" name="val4" >
+          </div></div>
+          </div>
+
+          <div class="row">
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DDE(d<sub>m</sub>)</italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="Describes the variation in electronegativity between the NPs
+            used in the new and reference states, depending on the conditions under which
+            the sizes of the NPs were measured."></i>
+            <input type="text" class="form-control" id="val5" name="val5" >
+          </div></div>
+
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 3</sub>(VAN)t<sub>a</sub></italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content= "Accounts for the difference in the spectral moment of order 3
+            (weighted by atomic van der Waals radius) between the NPs used in the new and
+            reference states, considering the exposure times."></i>
+            <input type="text" class="form-control" id="val6" name="val6" >
+          </div></div></div>
+
+          <div class="row">
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 2</sub>(ATO)t<sub>a</sub></italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="A perturbation term describing how the spectral moment of
+            order two changes (weighted by atomic weight) between the new and reference
+            states of the NPs, accounting for the exposure times involved in the experiment."></i>
+            <input type="text" class="form-control" id="val7"  name="val7" >
+          </div></div>
+
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DG<sub>&#181 2</sub>(HYD)s<sub>c</sub></italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="Represents the general spectral moment of order two weighted
+            by hydrophobicity, which accounts for the difference between the chemical
+            structures of the coating agents used in the new and reference states."></i>
+            <input type="text" class="form-control" id="val8" name="val8" >
+          </div></div></div>
+
+          <div class="row">
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>DG<sub>&#181 5</sub>(PSA)s<sub>c</sub></italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="Represents the general spectral moment of order five weighted
+            by polar surface area, which characterizes the difference between the chemical
+            structures of the coating agents used in the new and reference states"></i>
+            <input type="text" class="form-control" id="val9" name="val9" >
+          </div></div>
+          <div class="col">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><italic>Tox<sub>i</sub>(c<sub>j</sub>)<sub>r</sub></italic>:</label>
+            <i class="fa-regular fa-circle-question fa-xs" data-bs-toggle="popover" data-bs-container="body" 
+            data-bs-content="A dummy classification variable that defines the toxic impact of
+            the NP used in the reference state. "></i>
+            <input type="text" class="form-control" id="val10" name="val10" >
+            </div></div>
+          </div>
+
+         
+
+        </div>
+      </div>
+      <br>
+      <div class="d-grid gap-2 col-8 mx-auto">
+        <button class="btn btn-dark btn-lg fw-normal" type="submit">Test for toxicity</button>
+      </div>
+   
+    </div>
+
+
+  <!-- FOR MODEL INFORMATION -->
+
+    <div class="col-sm-5 mb-3 mb-sm-0">
+      
+      <div class="card">
+
+        <div class="card-header text-center fw-bold">
+          Predictive Model Information
+        </div>
+
+        <div class="card-body">
+          <p class="card-text text-center fw-bolder text-decoration-underline">Artificial Neural Network</p>
+          <p class="card-text" id="info">Artificial Neural Network (ANN) is a deep learning algorithm, 
+            which is a subset of machine learning. ANN is a computational model that tries to mimic how the human brain works,
+            hence human intervention are minimized. 
+            ANN is composed of three node layers that are interconnected with each other.
+            The input layer, which consist the input neurons, accepts the data and directly pass it onto the hidden layer. 
+            The hidden layer are the inner layers that is responsible for receiving the data and will perform the 
+            information gathering by weighing it according to the ANN's internal system. 
+            Lastly, the output layer is where the desired predictions are obtained.
+            By going through these layers, predictions are made as the weighted sum of the neurons in the neural network.</p>
+            <hr>
+            <p class="card-text text-center fw-bolder text-decoration-underline">Model Performance</p>
+          <div class="row">
+          <div class="col">
+            <table class="table table-sm table-borderless">
+                <tr>
+                    <td>Accuracy:</td>
+                    <td>98.90%</td>
+                </tr>
+                <tr>
+                    <td>Precision:</td>
+                    <td>99.89%</td>
+                </tr>
+                <tr>
+                    <td>Specificity:</td>
+                    <td>99.32%</td>
+                </tr>
+                <tr>
+                    <td>Recall:</td>
+                    <td>98.83%</td>
+                </tr>
+                <tr>
+                    <td>F1-Score:</td>
+                    <td>99.36%</td>
+                </tr>
+                <tr>
+                    <td>AUC Score:</td>
+                    <td>0.9906</td>
+                </tr>
+            </table>
+          </div>
+          <div class="col">
+            <img src="https://i.pinimg.com/originals/c0/a7/10/c0a71046b00bf94efe7a7134eee62f55.png" class="img-fluid" alt="ROC CURVE image">
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+  
+</form>   
+<br>
+<br>
+<br>
+<br>
+
+<script>
+      var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+        container: 'body'
+        })      
+</script>
+
+{%endblock%}

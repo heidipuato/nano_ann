@@ -1,0 +1,78 @@
+{% extends 'nanocheck/navbar.html' %}
+{% load static %}
+{% block content %} 
+
+<style>
+    #info {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    </style>
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <br><br>
+              <img src="https://www.medicaldevice-network.com/wp-content/uploads/sites/23/2020/07/Nanotechnology-Medicine-Technology-July.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    Definition of Terms and Concepts
+                </div>
+                <div class="card-body">
+                  <div class="card-title">
+                    <h6>QSAR Modeling</h6> 
+                  </div>
+                  <p class="card-text" id="info"> The concept of QSAR modeling is that physiological activity of particles can be inferred 
+                    from their associated chemical compositions. In this context, toxic effects of
+                    nanoparticles can be modelled as a function of molecular descriptors that a nanoparticles
+                    has. Molecular descriptors are the physicochemical properties of a molecule, this include
+                    their molar volume, electronegativity, polarizability, size, spectral moments, etc..
+                  </p>
+                  <div class="card-title">
+                    <h6>Perturbation Theory</h6> 
+                  </div>
+                  <p class="card-text" id="info"> Perturbation theory is a method used to improve an approximation by calculating errors
+                    or deviations from an initial solution. 
+                  </p>
+                  <div class="card-title">
+                    <h6>QSAR-PT Modeling</h6> 
+                  </div>
+                  <p class="card-text" id="info"> QSAR-Perturbation model or PT-QSAR model is the resulting technique of integrating
+                    the perturbation theory in classic QSAR modeling. Using this model, the limitation
+                    of classic QSAR was addressed. By generating NP-NP pairs, the classification of the
+                    NPs are extended to consider the different experimental conditions it is under and the
+                    several bio-target they are tested against.
+                  </p>
+                  <div class="card-title">
+                    <h6>Artificial Neural Network</h6> 
+                  </div>
+                  <p class="card-text" id="info"> Artificial Neural Network (ANN) is a deep learning algorithm, 
+                    which is a subset of machine learning. ANN is a computational model that tries to mimic how the human brain works,
+                    hence human intervention are minimized. 
+                    ANN is composed of three node layers that are interconnected with each other.
+                    The input layer, which consist the input neurons, accepts the data and directly pass it onto the hidden layer. 
+                    The hidden layer are the inner layers that is responsible for receiving the data and will perform the 
+                    information gathering by weighing it according to the ANN's internal system. 
+                    Lastly, the output layer is where the desired predictions are obtained.
+                    By going through these layers, predictions are made as the weighted sum of the neurons in the neural network.
+                  </p>
+                </div>
+              </div>
+        </div>
+        <!-- <div class="col">
+          <br><br>
+            <img src="https://www.medicaldevice-network.com/wp-content/uploads/sites/23/2020/07/Nanotechnology-Medicine-Technology-July.jpg" class="img-fluid" alt="Responsive image">
+        </div> -->
+      </div>
+
+  </div>
+<br>
+<br>
+<br>
+<br>
+
+
+{%endblock%}

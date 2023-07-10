@@ -1,0 +1,170 @@
+{% extends 'nanocheck/navbar.html' %}
+{% block content %} 
+<style>
+    #info {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    </style>
+<br>
+<br>
+<div class="row">
+  <div class="col-sm-1"></div>
+
+  <!-- Results for XGBOOST -->
+    <div class="col-sm-5 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-header">
+                Results of ANN Classification Model
+            </div>
+            <div class="card-body">
+            {% if ans == 'Your nanoparticle is NON-TOXIC' %}
+            <h5 class="card-title text-center">Classification: <span style="color: green">{{ ans }}</span>  </h5>
+            {% else %}
+            <h5 class="card-title text-center">Classification: <span style="color: red">{{ ans }}</span>  </h5>
+            {% endif %}
+       
+            <hr>
+            <!-- <p class="card-text">  -->
+            <p class="card-text text-center fw-bolder text-decoration-underline">Input Descriptors</p>
+                    <div class="card-body">
+                
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DDV(m<sub>e</sub>)</italic>:</label>{{ val1 }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DDL(m<sub>e</sub>)</italic>:</label>{{ val2 }}
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 1</sub>(ATO)</italic>:</label>{{ val3 }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 3</sub>(POL)n<sub>s</sub></italic>:</label>{{ val4 }}
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DDE(d<sub>m</sub>)</italic>:</label>{{ val5 }}
+                                
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 3</sub>(VAN)t<sub>a</sub></italic>:</label>{{ val6 }}
+                                
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DD<sub>&#181 2</sub>(ATO)t<sub>a</sub></italic>:</label>{{ val7 }}
+                                
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DG<sub>&#181 2</sub>(HYD)s<sub>c</sub></italic>:</label> {{ val8 }}
+                                
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>DG<sub>&#181 5</sub>(PSA)s<sub>c</sub></italic>:</label> {{ val9 }}
+                                
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label"><italic>Tox<sub>i</sub>(c<sub>j</sub>)<sub>r</sub></italic>:</label>{{ val10 }}
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-5 mb-3 mb-sm-0">
+      
+        <div class="card">
+  
+          <div class="card-header text-center fw-bold">
+            Predictive Model Information
+          </div>
+  
+          <div class="card-body">
+            <p class="card-text text-center fw-bolder text-decoration-underline">Artificial Neural Network</p>
+            <p class="card-text" id="info">Artificial Neural Network (ANN) is a deep learning algorithm, 
+              which is a subset of machine learning. ANN is a computational model that tries to mimic how the human brain works,
+              hence human intervention are minimized. 
+              ANN is composed of three node layers that are interconnected with each other.
+              The input layer, which consist the input neurons, accepts the data and directly pass it onto the hidden layer. 
+              The hidden layer are the inner layers that is responsible for receiving the data and will perform the 
+              information gathering by weighing it according to the ANN's internal system. 
+              Lastly, the output layer is where the desired predictions are obtained.
+              By going through these layers, predictions are made as the weighted sum of the neurons in the neural network.</p>
+              <hr>
+              <p class="card-text text-center fw-bolder text-decoration-underline">Model Performance</p>
+            <div class="row">
+            <div class="col">
+              <table class="table table-sm table-borderless">
+                  <tr>
+                      <td>Accuracy:</td>
+                      <td>98.90%</td>
+                  </tr>
+                  <tr>
+                      <td>Precision:</td>
+                      <td>99.89%</td>
+                  </tr>
+                  <tr>
+                      <td>Specificity:</td>
+                      <td>99.32%</td>
+                  </tr>
+                  <tr>
+                      <td>Recall:</td>
+                      <td>98.83%</td>
+                  </tr>
+                  <tr>
+                      <td>F1-Score:</td>
+                      <td>99.36%</td>
+                  </tr>
+                  <tr>
+                      <td>AUC Score:</td>
+                      <td>0.9906</td>
+                  </tr>
+              </table>
+            </div>
+            <div class="col">
+              <img src="https://i.pinimg.com/originals/c0/a7/10/c0a71046b00bf94efe7a7134eee62f55.png" class="img-fluid" alt="ROC CURVE image">
+            </div>
+          </div>
+  
+          </div>
+        </div>
+    </div>
+</div> 
+<br>
+<br>
+{%endblock%}
