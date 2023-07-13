@@ -19,7 +19,7 @@ def about(request):
     return render(request,"nanocheck/about.html")
 
 def predict(request):
-   cls= load_model('ann_keras_model.h5')
+   cls= load_model('ann10_keras_model.h5')
    lis=[]
 
    val01 = request.POST.get('val1')
